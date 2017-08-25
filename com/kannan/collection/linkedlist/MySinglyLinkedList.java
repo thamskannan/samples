@@ -1,4 +1,4 @@
-package com.kannan.collection;
+package com.kannan.collection.linkedlist;
 
 /**
  * @author Kannan Dharmalingam
