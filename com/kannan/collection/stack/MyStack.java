@@ -2,6 +2,8 @@ package com.kannan.collection.stack;
 
 /**
  * Stacks operate in LIFO model.
+ * A stack has a fixed location in the memory.
+ * When a data element is pushed in the stack, the pointer points to the current element
  *
  * Stack plays vital role in many data structures, some of them are
  *    1. In parsing arithmetic expressions
@@ -35,7 +37,7 @@ public class MyStack {
         }
     }
 
-    public int pop() {
+    private int pop() {
         if (isEmpty()) {
             System.out.println("Stack is empty.");
             return -1;
@@ -48,7 +50,7 @@ public class MyStack {
         return poppedValue;
     }
 
-    public int peek() {
+    private int peek() {
         if (isEmpty()) {
             System.out.println("Stack is empty.");
             return -1;
