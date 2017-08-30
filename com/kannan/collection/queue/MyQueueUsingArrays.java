@@ -25,7 +25,7 @@ public class MyQueueUsingArrays {
             System.out.print("Overflow ! Unable to add element: " + item);
         } else {
             rear++;
-            if (rear == capacity - 1) {
+            if (rear == capacity) {
                 rear = 0;
             }
             queueArr[rear] = item;
@@ -42,11 +42,9 @@ public class MyQueueUsingArrays {
             System.out.print("Underflow ! Unable to remove element from Queue");
         } else {
             front++;
-            if (front == capacity - 1) {
-                System.out.print("Remove " + queueArr[front - 1]);
+            System.out.print("Remove " + queueArr[front - 1]);
+            if (front == capacity) {
                 front = 0;
-            } else {
-                System.out.print("Remove " + queueArr[front - 1]);
             }
             currentSize--;
         }
@@ -72,7 +70,7 @@ public class MyQueueUsingArrays {
 
     private void display() {
         System.out.print("[");
-        for (int i = 0; i <= queueArr.length - 1; i++) {
+        for (int i = 0; i < queueArr.length; i++) {
             System.out.print(queueArr[i] + " ");
         }
         System.out.println("]" + "Front: " + front + ", Rear: " + rear + ", CurrentSize: " + currentSize);
@@ -82,35 +80,22 @@ public class MyQueueUsingArrays {
 
         MyQueueUsingArrays queue = new MyQueueUsingArrays(4);
         System.out.print("Initial");queue.display();
+        queue.enqueue(1);queue.display();
+        queue.dequeue();queue.display();
+        queue.enqueue(2);queue.display();
+        queue.enqueue(3);queue.display();
         queue.enqueue(4);queue.display();
         queue.dequeue();queue.display();
-        queue.enqueue(56);queue.display();
-        queue.enqueue(2);queue.display();
-        queue.enqueue(67);queue.display();
         queue.dequeue();queue.display();
+        queue.enqueue(5);queue.display();
         queue.dequeue();queue.display();
-        queue.enqueue(24);queue.display();
-        queue.dequeue();queue.display();
-        queue.enqueue(98);queue.display();
-        queue.enqueue(45);queue.display();
-        queue.enqueue(23);queue.display();
-        queue.enqueue(435);queue.display();
+        queue.enqueue(6);queue.display();
+        queue.enqueue(7);queue.display();
+        queue.enqueue(8);queue.display();
+        queue.enqueue(9);queue.display();
     }
 }
 
 /* Output
 Initial   [0 0 0 0 ]    Front: 0, Rear: -1, CurrentSize: 0
-Add 4     [4 0 0 0 ]    Front: 0, Rear: 0,  CurrentSize: 1
-Remove 4  [4 0 0 0 ]    Front: 1, Rear: 0,  CurrentSize: 0
-Add 56    [4 56 0 0 ]   Front: 1, Rear: 1,  CurrentSize: 1
-Add 2     [4 56 2 0 ]   Front: 1, Rear: 2,  CurrentSize: 2
-Add 67    [67 56 2 0 ]  Front: 1, Rear: 0,  CurrentSize: 3
-Remove 56 [67 56 2 0 ]  Front: 2, Rear: 0,  CurrentSize: 2
-Remove 2  [67 56 2 0 ]  Front: 0, Rear: 0,  CurrentSize: 1
-Add 24    [67 24 2 0 ]  Front: 0, Rear: 1,  CurrentSize: 2
-Remove 67 [67 24 2 0 ]  Front: 1, Rear: 1,  CurrentSize: 1
-Add 98    [67 24 98 0 ] Front: 1, Rear: 2,  CurrentSize: 2
-Add 45    [45 24 98 0 ] Front: 1, Rear: 0,  CurrentSize: 3
-Add 23    [45 23 98 0 ] Front: 1, Rear: 1,  CurrentSize: 4
-Overflow ! Unable to add element: 435 [45 23 98 0 ]Front: 1, Rear: 1, CurrentSize: 4
 */
