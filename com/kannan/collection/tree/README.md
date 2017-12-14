@@ -75,7 +75,7 @@ It is an array of linked list nodes. In other words, it is like a list whose ele
 
 The breadth first search (BFS) and the depth first search (DFS) are the two algorithms used for traversing and searching a node in a graph. They can also be used to find out whether a node is reachable from a given node or not.   
 
-Depth First Search (DFS)
+**Depth First Search (DFS)**
 
 The aim of DFS algorithm is to traverse the graph in such a way that it tries to go far from the root node. Stack is used in the implementation of the depth first search. Let’s see how depth first search works with respect to the following graph:   
 
@@ -91,36 +91,7 @@ Step 4: If the node has unvisited child nodes, get the unvisited child node, mar
 Step 5: If the node does not have any unvisited child nodes, pop the node from the stack.
 Based upon the above steps, the following Java code shows the implementation of the DFS algorithm:  
 
-Hide   Copy Code
-//
-public void dfs()
-{
-	//DFS uses Stack data structure
-	Stack s=new Stack();
-	s.push(this.rootNode);
-	rootNode.visited=true;
-	printNode(rootNode);
-	while(!s.isEmpty())
-	{
-		Node n=(Node)s.peek();
-		Node child=getUnvisitedChildNode(n);
-		if(child!=null)
-		{
-			child.visited=true;
-			printNode(child);
-			s.push(child);
-		}
-		else
-		{
-			s.pop();
-		}
-	}
-	//Clear visited property of nodes
-	clearNodes();
-}
-
-//   
-Breadth First Search (BFS)  
+**Breadth First Search (BFS)**
 
 This is a very different approach for traversing the graph nodes. The aim of BFS algorithm is to traverse the graph as close as possible to the root node. Queue is used in the implementation of the breadth first search. Let’s see how BFS traversal works with respect to the following graph:
 
@@ -135,30 +106,6 @@ Step 3: Remove the node from the Queue.
 Step 4: If the removed node has unvisited child nodes, mark them as visited and insert the unvisited children in the queue.
 Based upon the above steps, the following Java code shows the implementation of the BFS algorithm:  
 
-Hide   Copy Code
-//
-public void bfs()
-{
-	//BFS uses Queue data structure
-	Queue q=new LinkedList();
-	q.add(this.rootNode);
-	printNode(this.rootNode);
-	rootNode.visited=true;
-	while(!q.isEmpty())
-	{
-		Node n=(Node)q.remove();
-		Node child=null;
-		while((child=getUnvisitedChildNode(n))!=null)
-		{
-			child.visited=true;
-			printNode(child);
-			q.add(child);
-		}
-	}
-	//Clear visited property of nodes
-	clearNodes();
-}
-// 
 The full implementation of this is given in the attached source code.
 
 About the Code
