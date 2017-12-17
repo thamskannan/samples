@@ -13,16 +13,12 @@ class Node {
 
 public class Graph {
     private Node rootNode;
-    private ArrayList nodes = new ArrayList();
+    private ArrayList<Node> nodes = new ArrayList<>();
     private int[][] adjMatrix;//Edges will be represented as adjacency Matrix
     private int size;
 
     private void setRootNode(Node n) {
         this.rootNode = n;
-    }
-
-    public Node getRootNode() {
-        return this.rootNode;
     }
 
     private void addNode(Node n) {
@@ -47,8 +43,8 @@ public class Graph {
         int index = nodes.indexOf(n);
         int j = 0;
         while (j < size) {
-            if (adjMatrix[index][j] == 1 && ((Node) nodes.get(j)).visited == false) {
-                return (Node) nodes.get(j);
+            if (adjMatrix[index][j] == 1 && !(nodes.get(j)).visited) {
+                return nodes.get(j);
             }
             j++;
         }
@@ -60,12 +56,12 @@ public class Graph {
 
         //BFS uses Queue data structure
         List<Node> resultSet = new ArrayList<>(nodes.size());
-        Queue q = new LinkedList();
+        Queue<Node> q = new LinkedList<>();
         q.add(this.rootNode);
         resultSet.add(this.rootNode);
         rootNode.visited = true;
         while (!q.isEmpty() && resultSet.size() < nodes.size()) {
-            Node n = (Node) q.remove();
+            Node n = q.remove();
             Node child;
             while ((child = getUnvisitedChildNode(n)) != null) {
                 child.visited = true;
@@ -82,12 +78,12 @@ public class Graph {
     //DFS traversal of a tree is performed by the dfs() function
     private void dfs() {
         //DFS uses Stack data structure
-        Stack s = new Stack();
+        Stack<Node> s = new Stack<>();
         s.push(this.rootNode);
         rootNode.visited = true;
         printNode(rootNode);
         while (!s.isEmpty()) {
-            Node n = (Node) s.peek();
+            Node n = s.peek();
             Node child = getUnvisitedChildNode(n);
             if (child != null) {
                 child.visited = true;
@@ -106,7 +102,7 @@ public class Graph {
     private void clearNodes() {
         int i = 0;
         while (i < size) {
-            Node n = (Node) nodes.get(i);
+            Node n = nodes.get(i);
             n.visited = false;
             i++;
         }
@@ -147,9 +143,9 @@ public class Graph {
 
         //Perform the traversal of the graph
         System.out.println("DFS Traversal of a tree is ------------->");
-        g.dfs();
+        g.dfs();  // A B E F C D
 
         System.out.println("\nBFS Traversal of a tree is ------------->");
-        g.bfs();
+        g.bfs();  // ABCDEF
     }
 }
