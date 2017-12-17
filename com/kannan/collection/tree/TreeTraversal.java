@@ -14,7 +14,7 @@ public class TreeTraversal {
         char data;
         boolean visited = false;
 
-        public Node(char data) {
+        Node(char data) {
             this.data = data;
         }
     }

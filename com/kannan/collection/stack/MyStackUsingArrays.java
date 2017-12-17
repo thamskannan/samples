@@ -15,13 +15,12 @@ package com.kannan.collection.stack;
  *
  * @author Kannan Dharmalingam
  */
-public class MyStack {
+public class MyStackUsingArrays {
     private int arr[];
-    private int top;
+    private int top = -1;
     private int capacity;
 
-    private MyStack(int size) {
-        top = -1;
+    private MyStackUsingArrays(int size) {
         capacity = size;
         this.arr = new int[size];
     }
@@ -78,15 +77,15 @@ public class MyStack {
     }
 
     public static void main(String[] args) {
-        MyStack myStack = new MyStack(5);
-        myStack.push(5);
-        myStack.push(4);
-        myStack.push(6);
-        myStack.push(2);
-        myStack.push(7);
-        myStack.pop();
-        myStack.peek();
-        myStack.push(1);
+        MyStackUsingArrays stack = new MyStackUsingArrays(5);
+        stack.push(5);
+        stack.push(4);
+        stack.push(6);
+        stack.push(2);
+        stack.push(7);
+        stack.pop();
+        stack.peek();
+        stack.push(1);
     }
 }
 

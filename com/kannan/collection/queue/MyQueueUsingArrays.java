@@ -4,10 +4,10 @@ package com.kannan.collection.queue;
  * @author Kannan Dharmalingam
  */
 public class MyQueueUsingArrays {
-    private int capacity;
     private int queueArr[];
     private int front = 0;
     private int rear = -1;
+    private int capacity;
     private int currentSize = 0;
 
     private MyQueueUsingArrays(int queueSize) {
@@ -70,8 +70,8 @@ public class MyQueueUsingArrays {
 
     private void display() {
         System.out.print("[");
-        for (int i = 0; i < queueArr.length; i++) {
-            System.out.print(queueArr[i] + " ");
+        for (int aQueueArr : queueArr) {
+            System.out.print(aQueueArr + " ");
         }
         System.out.println("]" + "Front: " + front + ", Rear: " + rear + ", CurrentSize: " + currentSize);
     }
@@ -97,5 +97,18 @@ public class MyQueueUsingArrays {
 }
 
 /* Output
-Initial   [0 0 0 0 ]    Front: 0, Rear: -1, CurrentSize: 0
+Initial[0 0 0 0 ]Front: 0, Rear: -1, CurrentSize: 0
+Add 1[1 0 0 0 ]Front: 0, Rear: 0, CurrentSize: 1
+Remove 1[1 0 0 0 ]Front: 1, Rear: 0, CurrentSize: 0
+Add 2[1 2 0 0 ]Front: 1, Rear: 1, CurrentSize: 1
+Add 3[1 2 3 0 ]Front: 1, Rear: 2, CurrentSize: 2
+Add 4[1 2 3 4 ]Front: 1, Rear: 3, CurrentSize: 3
+Remove 2[1 2 3 4 ]Front: 2, Rear: 3, CurrentSize: 2
+Remove 3[1 2 3 4 ]Front: 3, Rear: 3, CurrentSize: 1
+Add 5[5 2 3 4 ]Front: 3, Rear: 0, CurrentSize: 2
+Remove 4[5 2 3 4 ]Front: 0, Rear: 0, CurrentSize: 1
+Add 6[5 6 3 4 ]Front: 0, Rear: 1, CurrentSize: 2
+Add 7[5 6 7 4 ]Front: 0, Rear: 2, CurrentSize: 3
+Add 8[5 6 7 8 ]Front: 0, Rear: 3, CurrentSize: 4
+Overflow ! Unable to add element: 9[5 6 7 8 ]Front: 0, Rear: 3, CurrentSize: 4
 */
