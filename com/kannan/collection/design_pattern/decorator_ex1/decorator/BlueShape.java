@@ -6,7 +6,7 @@ import com.kannan.collection.design_pattern.decorator_ex1.Shape;
  * @author Kannan Dharmalingam
  */
 public class BlueShape extends AbstractDecorator {
-    BlueShape(Shape decoratedShape) {
+    public BlueShape(Shape decoratedShape) {
         super(decoratedShape);
     }
 
