@@ -3,7 +3,7 @@ package com.kannan.collection.thread;
 /**
  * @author Kannan Dharmalingam
  */
-public class ThreadTest {
+public class ThreadInJava8 {
     public static void main(String[] args) {
         Runnable r1 = new Runnable() {
             @Override
