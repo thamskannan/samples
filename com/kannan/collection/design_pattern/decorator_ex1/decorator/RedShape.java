@@ -1,11 +1,13 @@
-package com.kannan.collection.design_pattern.decorator;
+package com.kannan.collection.design_pattern.decorator_ex1.decorator;
+
+import com.kannan.collection.design_pattern.decorator_ex1.Shape;
 
 /**
  * @author Kannan Dharmalingam
  */
-public class RedShapeDecorator extends AbstractDecorator {
+public class RedShape extends AbstractDecorator {
 
-    public RedShapeDecorator(Shape decoratedShape) {
+    public RedShape(Shape decoratedShape) {
         super(decoratedShape);
     }
 

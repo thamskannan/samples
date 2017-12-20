@@ -1,4 +1,4 @@
-package com.kannan.collection.design_pattern.decorator;
+package com.kannan.collection.design_pattern.decorator_ex1;
 
 /**
  * @author Kannan Dharmalingam

@@ -1,4 +1,7 @@
-package com.kannan.collection.design_pattern.decorator;
+package com.kannan.collection.design_pattern.decorator_ex1;
+
+import com.kannan.collection.design_pattern.decorator_ex1.decorator.BlueShape;
+import com.kannan.collection.design_pattern.decorator_ex1.decorator.RedShape;
 
 /**
  * @author Kannan Dharmalingam
@@ -7,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         //drawing();
         Shape circle = new Circle();
-        Shape redCircle = new RedShapeDecorator(circle);
-        Shape blueCircle = new BlueShapeDecorator(circle);
+        Shape redCircle = new RedShape(circle);
+        Shape blueCircle = new BlueShape(circle);
 
         System.out.println("Drawing Normal Circle");
         circle.draw();
@@ -35,10 +38,10 @@ public class Main {
      */
     private static void drawing() {
         Shape circle = new Circle();
-        Shape redCircle = new RedShapeDecorator(new Circle());
-        Shape redRectangle = new RedShapeDecorator(new Rectangle());
-        Shape blueCircle = new BlueShapeDecorator(new Circle());
-        Shape blueRectangle = new BlueShapeDecorator(new Rectangle());
+        Shape redCircle = new RedShape(new Circle());
+        Shape redRectangle = new RedShape(new Rectangle());
+        Shape blueCircle = new BlueShape(new Circle());
+        Shape blueRectangle = new BlueShape(new Rectangle());
 
         System.out.println("Drawing Normal Circle");
         circle.draw();
