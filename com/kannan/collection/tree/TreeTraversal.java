@@ -1,6 +1,8 @@
 package com.kannan.collection.tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -10,7 +12,7 @@ public class TreeTraversal {
     /**
      * @author Kannan Dharmalingam
      */
-    static class Node {
+    private class Node {
         char data;
         boolean visited = false;
 
@@ -20,7 +22,7 @@ public class TreeTraversal {
     }
 
     private Node rootNode;
-    private ArrayList<Node> nodes = new ArrayList<>();
+    private List<Node> nodes = new ArrayList<>();
     private int[][] adjMatrix;//Edges will be represented as adjacency Matrix
     private int size;
 
@@ -28,8 +30,8 @@ public class TreeTraversal {
         this.rootNode = n;
     }
 
-    private void addNode(Node n) {
-        nodes.add(n);
+    private void addNode(Collection<Node> nodeCollection) {
+        nodes.addAll(nodeCollection);
     }
 
     private void connectNode(Node start, Node end) {
@@ -117,32 +119,31 @@ public class TreeTraversal {
     }
 
     public static void main(String[] args) {
-        TreeTraversal.Node nA = new TreeTraversal.Node('A');
-        TreeTraversal.Node nB = new TreeTraversal.Node('B');
-        TreeTraversal.Node nC = new TreeTraversal.Node('C');
-        TreeTraversal.Node nD = new TreeTraversal.Node('D');
-        TreeTraversal.Node nE = new TreeTraversal.Node('E');
-        TreeTraversal.Node nF = new TreeTraversal.Node('F');
-
         TreeTraversal tree = new TreeTraversal();
-        tree.addNode(nA);
-        tree.addNode(nB);
-        tree.addNode(nC);
-        tree.addNode(nD);
-        tree.addNode(nE);
-        tree.addNode(nF);
-        tree.setRootNode(nA);
-
-        tree.connectNode(nA, nB);
-        tree.connectNode(nA, nC);
-        tree.connectNode(nA, nD);
-
-        tree.connectNode(nB, nE);
-        tree.connectNode(nB, nF);
-        tree.connectNode(nC, nF);
+        tree.initialize();
 
         tree.breadthFirstSearch();
         tree.depthFirstSearch();
+    }
+
+    private void initialize() {
+        Node nA = new Node('A');
+        Node nB = new Node('B');
+        Node nC = new Node('C');
+        Node nD = new Node('D');
+        Node nE = new Node('E');
+        Node nF = new Node('F');
+
+        addNode(Arrays.asList(nA, nB, nC, nD, nE, nF));
+        setRootNode(nA);
+
+        connectNode(nA, nB);
+        connectNode(nA, nC);
+        connectNode(nA, nD);
+
+        connectNode(nB, nE);
+        connectNode(nB, nF);
+        connectNode(nC, nF);
     }
 }
 /*
