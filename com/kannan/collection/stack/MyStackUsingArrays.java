@@ -43,6 +43,7 @@ public class MyStackUsingArrays {
         }
 
         int poppedValue = arr[top];
+        //arr[top] = null; -- Assign null in-case of Object array or Collection, otherwise it become absolute reference and leads memory leak.
         top--;
         System.out.println("Popping " + poppedValue);
         display();
